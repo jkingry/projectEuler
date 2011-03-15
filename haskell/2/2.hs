@@ -1,11 +1,21 @@
-fib 1 = 1
-fib 2 = 2
-fib n = fib (n - 1) + fib (n - 2)
 
-p2a n limit = if (fib n) < limit
-		then if mod (fib n) 2 == 0
-			then (fib n) + p2a (n + 1) limit 
-			else p2a (n + 1) limit
-		else 0
+-- fib 1 = 1
+-- fib 2 = 2
+-- fib n = fib (n - 1) + fib (n - 2)
 
-main = print (p2a 1 4000000)
+
+
+fibList [] = [1]
+fibList [1] = [2,1]
+fibList (a:b:xs) = (a+b) : a : b : xs
+
+fib 0 list = list
+fib n list = fib (n - 1) (fibList list)
+
+evenFilter [] = []
+evenFilter (x:xs) = if (mod x 2) == 0 
+	then x : evenFilter(xs)
+	else evenFilter(xs)
+
+
+main = print (sum (fib 10))
