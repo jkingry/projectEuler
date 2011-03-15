@@ -22,3 +22,28 @@ inter:: a -> [[a]] -> [a]
 inter sep [] = []
 inter sep [x] = x
 inter sep (x:xs) = x ++ (sep:(inter sep xs))
+
+-- exercise 8
+data Tree a = Node a (Tree a) (Tree a)
+	| Empty
+
+height Empty = 0
+height (Node a left right) = 1 + max (height left) (height right)
+
+-- exercise 9
+data Direction = Lft | Rgt | Str deriving (Show)
+
+-- exercise 10
+-- turn (ax,ay) (bx,by) (cx,cy) 
+--	| my == cy = Str
+--	| my < cy = Lft 
+--	| my > cy = Rgt 
+--	| otherwise = error (show my)
+--	where m = (by - ay) / (bx - ax)
+--              b = ay - (m*ax)
+--	      my = case m of
+--		NaN -> axm * cx + b
+	
+
+
+
