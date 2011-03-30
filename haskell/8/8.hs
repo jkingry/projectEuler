@@ -7,7 +7,7 @@ stringProduct :: String -> Int
 stringProduct = product . map (read . (:[]))
 
 p8 :: String -> Int
-p8 s = maximum (map stringProduct (subs 5 s)) 
+p8 = maximum . map stringProduct . subs 5   
 
 oneThousandDigit = "73167176531330624919225119674426574742355349194934\
  \96983520312774506326239578318016984801869478851843\
