@@ -2,14 +2,6 @@ import Data.List (group, sort)
 import Data.Maybe (fromMaybe)
 import EulerCommon
 
-factor 1 = []
-factor n = p:(factor nn)
-		where
-			nn = n `div` p
-			p = firstPrime n
-
-firstPrime n = head (filter (\p -> n `rem` p == 0) primes) 
-
 -- http://book.realworldhaskell.org/read/barcode-recognition.html#id631625 
 type Run = Int
 type RunLength a = [(a, Run)]
