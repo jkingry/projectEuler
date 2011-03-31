@@ -24,3 +24,16 @@ diag x indexes = filterMaybe (zipWith elementAt x indexes)
           filterMaybe [] = []
           filterMaybe (Nothing:xs) = filterMaybe xs
           filterMaybe ((Just x):xs) = x:filterMaybe xs
+
+readArray :: String -> [[Int]]
+readArray x = map ((map read) . words) (lines x)
+
+p11 x = maximum products
+    where runs = (rows x) ++ (columns x) ++ (diags x)
+          fourRuns = concat $ map (subs 4) runs
+          products = map product fourRuns
+
+main = do
+    input <- readFile "11.input.txt"
+    print $ p11 $ readArray input
+
