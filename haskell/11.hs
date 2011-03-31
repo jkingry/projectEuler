@@ -1,24 +1,8 @@
 import Data.List
+import EulerCommon (subs)
 
 rows x = x
 columns x = transpose x 
-
-{-
-diaginols x = zipWith diaginol x [0..(length 
-	where diaginol x d = zipWith (!!) [d..d + (length n) - 1] x
-
-[_,_,0]
-[_,0,1]
-[0,1,2]
-[1,2,_]
-[2,_,_]
-
-[0,1,2,3]
-[1,2,3,_]
-[2,3,_,_]
-[_,0,1,2]
-[_,_,0,1]
--}
 
 diags :: [[a]] -> [[a]]
 diags x = map (diag x) $ diagIndexes $ length x 

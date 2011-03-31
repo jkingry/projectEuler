@@ -1,7 +1,5 @@
 import Data.List
-
-subs :: Int -> [a] -> [[a]]
-subs n = map (take n) . filter ((>=n) . length) . tails
+import EulerCommon (subs)
 
 stringProduct :: String -> Int 
 stringProduct = product . map (read . (:[]))

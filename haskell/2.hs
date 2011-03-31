@@ -1,4 +1,4 @@
-fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
+import EulerCommon
 
 p2 limit = sum (filter even (takeWhile (<limit) fibs))
 

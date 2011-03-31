@@ -1,12 +1,8 @@
+import EulerCommon
+
 threeDigitNumbers = [999,998..100]
 
 products = zipWith (*) threeDigitNumbers threeDigitNumbers
-
-isPalindrome :: String -> Bool
-isPalindrome [] = True
-isPalindrome [a] = True
-isPalindrome (x:xs) | x == last xs = isPalindrome (init xs)
-					| otherwise = False
 
 p4 :: Int -> Int 
 p4 n = foldr max 0 palindromeNumbers 
@@ -18,3 +14,4 @@ p4 n = foldr max 0 palindromeNumbers
 		b = (10 ^ n) - 1
 		e = (10 ^ (n - 1))
 
+main = print (p4 3)
