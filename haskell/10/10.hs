@@ -7,6 +7,6 @@ sieve (p:ps) x k =
 	++
 	sieve ps (p*p) (k+1)
 
-p10 = sum $ takeWhile (<2000000) primes
+p10 = sum $ takeWhile (<2000000): primes
 
 main = print p10
