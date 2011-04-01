@@ -14,9 +14,10 @@ import P9
 import P10 
 import P11 
 import P12
+import P13
 
-solutions = [p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12]
-tests = TestList [p1Test, p2Test,p3Test,p4Test,p5Test,p6Test,p7Test,p8Test,p9Test,p10Test,p11Test,p12Test]
+solutions = [p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13]
+tests = TestList [p1Test, p2Test,p3Test,p4Test,p5Test,p6Test,p7Test,p8Test,p9Test,p10Test,p11Test,p12Test,p13Test]
 
 main = do
 		args <- getArgs
