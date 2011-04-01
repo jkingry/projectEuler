@@ -2,6 +2,7 @@ module EulerCommon
 where
 
 import Data.List
+import Test.HUnit
 
 fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
 
@@ -23,3 +24,5 @@ isPalindrome (x:xs) | x == last xs = isPalindrome (init xs)
 
 subs :: Int -> [a] -> [[a]]
 subs n = map (take n) . filter ((>=n) . length) . tails
+
+eulerTest s n f = TestCase (assertEqual s n f)
