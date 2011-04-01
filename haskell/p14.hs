@@ -31,7 +31,7 @@ lctz m n = case (M.lookup n m) of
           curLength = 1 + (snd next)
           curMap = M.insert n curLength (fst next)
 
-maxLctz n = foldl maxTuple (0, 0, M.empty) [1,3..n]
+maxLctz n = foldl' maxTuple (0, 0, M.empty) [1,3..n]
     where
         maxTuple (pn,prevLength,prevMap) cn = if curLength > prevLength then (cn, curLength, curMap) else (pn, prevLength, curMap)  
             where 
