@@ -1,61 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace P14
 {
     internal static class Program
     {
-        static Dictionary<long, int> lengths = new Dictionary<long, int>();
+        static Tuple<int,int> Solution(int start) 
+        { 
+            int longest = 0; 
+            int terms = 0; 
+            int i; 
+            long j; 
 
-        static long Colltaz(long n)
-        {
-            if (n % 2 == 0)
-            {
-                return n / 2;
-            }
-            else
-            {
-                return 3 * n + 1;
-            }
-        }
+            for (i = 1; i <= start; i++) 
+            { 
+                j = i; 
+                int this_terms = 1; 
 
-        static int CollatzLength(long n)
-        {
-            if (n <= 1) return 1;
+                while (j != 1) 
+                { 
+                    this_terms++; 
 
-            if (lengths.ContainsKey(n))
-            {
-                return lengths[n];
-            }
+                    if (this_terms > terms) 
+                    { 
+                        terms = this_terms; 
+                        longest = i; 
+                    } 
 
-            var length = 1 + CollatzLength(Colltaz(n));
-            lengths.Add(n, length);
+                    if (j % 2 == 0) 
+                    { 
+                        j = j / 2; 
+                    } 
+                    else 
+                    { 
+                        j = 3 * j + 1; 
+                    } 
+                } 
+            } 
 
-            return length;
-        }
-
-        static Tuple<long, int> MaxCollatzLength(long n)
-        {
-            if (n <= 1) return Tuple.Create(1L,1);
-
-            var m = 1L;
-            var mL = 1;
-            for (var i = 0L; i <= n; ++i)
-            {
-                var L = CollatzLength(i);
-                if (L >= mL)
-                {
-                    mL = L;
-                    m = i;
-                }
-            }
-
-            return Tuple.Create(m, mL);
+            return Tuple.Create(longest, terms);
         }
 
         static void Main()
         {
-            Console.WriteLine(MaxCollatzLength(1000000).Item1);
+            while(true)
+            {
+                var line = Console.ReadLine();
+                var n = Int32.Parse(line);
+                Console.WriteLine("{0} = {1}", n, Solution(n));
+            }
         }
     }
 }
