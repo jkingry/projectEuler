@@ -7,9 +7,10 @@ import Math.Sieve.Factor
 triNumbers = map triNumber [1..] 
 triNumber n = sum [1..n]
 
+s = sieve $ 2^30
+
 fp12 n list = head $ dropWhile ((<n) . factorCount) list 
-    where s = sieve $ 2^30
-          factorCount n = product $ map ((+1) . snd) (factor s n) 
+    where factorCount n = product $ map ((+1) . snd) (factor s n) 
 
 p12 = fp12 500 triNumbers
 
