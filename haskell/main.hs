@@ -20,15 +20,16 @@ import P15
 import P16
 import P17
 import P18
+import P19
 import P20
 
-orderedSolutions = [p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18]
-unorderedSolutions = [(20,p20)]
+orderedSolutions = [p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20]
+unorderedSolutions = []
 
 solutions = (zip [1..] orderedSolutions) ++ unorderedSolutions
     where ns = length solutions
 
-tests = TestList [p1Test, p2Test,p3Test,p4Test,p5Test,p6Test,p7Test,p8Test,p9Test,p10Test,p11Test,p12Test,p13Test,p14Test,p15Test,p16Test,p17Test,p18Test,p20Test]
+tests = TestList [p1Test, p2Test,p3Test,p4Test,p5Test,p6Test,p7Test,p8Test,p9Test,p10Test,p11Test,p12Test,p13Test,p14Test,p15Test,p16Test,p17Test,p18Test,p19Test,p20Test]
 
 main = do
         args <- getArgs
