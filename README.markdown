@@ -1,1 +1,2 @@
-Learning [Haskell](http://www.haskell.org), working through the project euler problems as training.
+Learning [Haskell](http://www.haskell.org), by working through the project euler problems as training.
+
