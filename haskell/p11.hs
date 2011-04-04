@@ -27,9 +27,6 @@ diag x indexes = filterMaybe (zipWith elementAt x indexes)
           filterMaybe (Nothing:xs) = filterMaybe xs
           filterMaybe ((Just x):xs) = x:filterMaybe xs
 
-readArray :: String -> [[Integer]]
-readArray x = map ((map read) . words) (lines x)
-
 fp11 x = maximum products
     where runs = (rows x) ++ (columns x) ++ (diags x)
           fourRuns = concat $ map (subs 4) runs

@@ -11,9 +11,6 @@ tmax (Node n left right) = n + max (tmax left) (tmax right)
 tail' [] = []
 tail' (x:xs) = xs
 
-readArray :: String -> [[Integer]]
-readArray x = map ((map read) . words) (lines x)
-
 ct _ [] = Tip
 ct i (x:xs) = Node (x!!i) (ct i xs) (ct (i+1) xs) 
 

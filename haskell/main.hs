@@ -1,4 +1,4 @@
-module Main ( main ) where
+module Main where
 
 import System.Environment ( getArgs )
 import Test.HUnit
@@ -20,17 +20,30 @@ import P15
 import P16
 import P17
 import P18
+import P20
 
-solutions = [p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18]
-tests = TestList [p1Test, p2Test,p3Test,p4Test,p5Test,p6Test,p7Test,p8Test,p9Test,p10Test,p11Test,p12Test,p13Test,p14Test,p15Test,p16Test,p17Test,p18Test]
+orderedSolutions = [p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18]
+unorderedSolutions = [(20,p20)]
+
+solutions = (zip [1..] orderedSolutions) ++ unorderedSolutions
+    where ns = length solutions
+
+tests = TestList [p1Test, p2Test,p3Test,p4Test,p5Test,p6Test,p7Test,p8Test,p9Test,p10Test,p11Test,p12Test,p13Test,p14Test,p15Test,p16Test,p17Test,p18Test,p20Test]
 
 main = do
-		args <- getArgs
-		if (length args) == 0 
-			then do 
-				results <- runTestTT tests
-				print results
-			else print (solution args)
-	where
-		solutionNumber args = (read $ head args) - 1
-		solution args = solutions !! (solutionNumber args) 
+        args <- getArgs
+        if (length args) == 0 
+            then do 
+                results <- runTestTT tests
+                print results
+            else 
+                print $ runSolution args
+
+runSolution :: [String] -> Integer
+runSolution args = func 
+    where n = (read $ head args)
+          func = case (lookup n solutions) of
+            Just f -> f
+            Nothing -> error $ "No solution for problem " ++ (show n)
+
+

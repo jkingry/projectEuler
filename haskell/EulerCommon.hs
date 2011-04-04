@@ -5,7 +5,9 @@ module EulerCommon
 	subs,
 	eulerTest,
 	primes,
-	primeFactors
+	primeFactors,
+	readArray,
+	numberToDigits
 )
 where
 
@@ -24,4 +26,10 @@ subs :: Int -> [a] -> [[a]]
 subs n = map (take n) . filter ((>=n) . length) . tails
 
 eulerTest s n f = TestCase (assertEqual s n f)
+
+readArray :: String -> [[Integer]]
+readArray x = map ((map read) . words) (lines x)
+
+numberToDigits :: Integer -> [Integer]
+numberToDigits n = map (read.(:[])) (show n)
 
