@@ -34,6 +34,6 @@ input =
 cts :: String -> Tree Integer 
 cts s = ct 0 (readArray s) 
 
-p18 = tmax $ cts input
+p18 = return $ tmax $ cts input
 
 p18Test = eulerTest "p18" 1074 p18

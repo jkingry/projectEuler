@@ -15,6 +15,6 @@ fp4 n = foldr max 0 palindromeNumbers
 		b = (10 ^ n) - 1
 		e = (10 ^ (n - 1))
 
-p4 = fp4 3
+p4 = return $ fp4 3
 
 p4Test = eulerTest "p4" 906609 p4

@@ -12,7 +12,7 @@ s = sieve $ 2^30
 fp12 n list = head $ dropWhile ((<n) . factorCount) list 
     where factorCount n = product $ map ((+1) . snd) (factor s n) 
 
-p12 = fp12 500 triNumbers
+p12 = return $ fp12 500 triNumbers
 
 p12Test = eulerTest "p12" 76576500 p12
 

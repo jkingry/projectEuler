@@ -8,6 +8,6 @@ fp6 n = squareOfSum - sumOfSquares
 		squareOfSum = sum ^ 2 
 		sum = foldr (+) 0 [1.. n]
 
-p6 = fp6 100
+p6 = return $ fp6 100
 
 p6Test = eulerTest "p6" 25164150 p6

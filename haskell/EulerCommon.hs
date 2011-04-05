@@ -25,7 +25,8 @@ isPalindrome (x:xs) | x == last xs = isPalindrome (init xs)
 subs :: Int -> [a] -> [[a]]
 subs n = map (take n) . filter ((>=n) . length) . tails
 
-eulerTest s n f = TestCase (assertEqual s n f)
+eulerTest :: String -> Integer -> IO Integer -> Test
+eulerTest s n f = s ~: f >>= assertEqual s n
 
 readArray :: String -> [[Integer]]
 readArray x = map ((map read) . words) (lines x)

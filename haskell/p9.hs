@@ -34,6 +34,6 @@ solution = [ (a,b) |
 (a,b) = head solution
 c = 1000 - (a+b)
 
-p9 = a*b*c
+p9 = return $ a*b*c
 
 p9Test = eulerTest "p9" 31875000 p9

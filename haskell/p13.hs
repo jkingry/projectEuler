@@ -5,8 +5,8 @@ import EulerCommon
 numbers :: [Integer]
 numbers = map read $ lines input
 
-p13 :: Integer
-p13 = read $ take 10 $ show $ sum numbers
+p13 :: IO Integer
+p13 = return $ read $ take 10 $ show $ sum numbers
 
 p13Test = eulerTest "p13" 5537376230 p13
 

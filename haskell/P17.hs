@@ -32,6 +32,6 @@ nwordLength n = genericLength $ filter validChar (nwords n)
 
 fp17 n = sum $ map nwordLength [1..n]
 
-p17 = fp17 1000
+p17 = return $ fp17 1000
 
 p17Test = eulerTest "p17" 21124 p17

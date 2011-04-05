@@ -41,7 +41,7 @@ fp14 n = (maxN, maxLength)
     where
         (maxN, maxLength,_) = maxLctz n
 
-p14 = maxN
+p14 = return $ maxN
     where (maxN, _) = fp14 1000000 
 
 p14Test = eulerTest "p14" 837799 p14

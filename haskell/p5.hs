@@ -36,7 +36,7 @@ productRun = (foldr (*) 1) . (map tm)
 
 fp5 n = productRun (maxFactors n)
 
-p5 = fp5 20
+p5 = return $ fp5 20
 
 p5Test = eulerTest "p5" 232792560 p5
 

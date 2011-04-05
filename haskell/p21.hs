@@ -1,4 +1,4 @@
-module P21 where
+module P21 (p21, p21Test) where
 
 import EulerCommon
 
@@ -21,6 +21,6 @@ isAmicable n = n /= n' && n == (sf n')
     where sf = (sum . strictFactors) 
           n' = sf n
 
-p21 = fp21 10000
+p21 = return $ fp21 10000
 
 p21Test = eulerTest "p21" 31626 p21

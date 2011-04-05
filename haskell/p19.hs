@@ -18,8 +18,8 @@ months from to
 fp19 :: Day -> Day -> Integer
 fp19 from to = (fromIntegral . length) $ filter isSunday $ months from to 
 
-p19 :: Integer
-p19 = fp19 (fromGregorian 1901 1 1) (fromGregorian 2000 12 31)
+p19 :: IO Integer
+p19 = return $ fp19 (fromGregorian 1901 1 1) (fromGregorian 2000 12 31)
 
 p19Test = eulerTest "p19" 171 p19
 

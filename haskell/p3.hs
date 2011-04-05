@@ -10,6 +10,6 @@ fp3 n = foldr max 0 divisors
 		possible = (takeWhile (< limit) primes)
 		limit = (round . sqrt . fromIntegral) n  
 
-p3 = fp3 600851475143
+p3 = return $ fp3 600851475143
 
 p3Test = eulerTest "p3" 6857 p3

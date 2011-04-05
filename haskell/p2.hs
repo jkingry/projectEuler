@@ -4,6 +4,6 @@ import EulerCommon
 
 fp2 limit = sum (filter even (takeWhile (<limit) fibs))
 
-p2 = fp2 4000000
+p2 = return $ fp2 4000000
 
 p2Test = eulerTest "p2" 4613732 p2
