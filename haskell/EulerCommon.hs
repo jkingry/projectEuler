@@ -7,7 +7,9 @@ module EulerCommon
 	primes,
 	primeFactors,
 	readArray,
-	numberToDigits
+	numberToDigits,
+	factors,
+	strictFactors
 )
 where
 
@@ -44,3 +46,6 @@ primeFactors n = factor n primes
         | n `mod` p == 0 = p : factor (n `div` p) (p:ps)
         | otherwise      = factor n ps 
 
+factors n = map product $ nub $ subsequences $ primeFactors n
+
+strictFactors n = filter (<n) $ factors n
